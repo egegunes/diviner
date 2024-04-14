@@ -1,54 +1,54 @@
+"use client";
+
+import { useState } from "react";
+
 import Image from "next/image";
-
-import { MajorArcana, Cups, Pentacles, Swords, Wands } from "@/app/tarot";
-
-interface TarotCardProps {
-  name: string;
-  src: string;
-}
-
-const TarotCard = ({ name, src }: TarotCardProps) => {
-  return (
-    <div className="tarot-card border rounded-lg overflow-hidden">
-      <Image src={src} alt={name} title={name} fill={true} />
-    </div>
-  );
-};
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const [above, setAbove] = useState(false);
+
   return (
-    <div className="container mx-auto">
-      <h1 className="text-4xl font-bold text-left">Major Arcana</h1>
-      <div className="flex space-x-4 overflow-x-auto">
-        {MajorArcana.map((card) => (
-          <TarotCard key={card.name} name={card.name} src={card.src} />
-        ))}
-      </div>
-      <h1 className="text-4xl font-bold text-left">Minor Arcana</h1>
-      <h3 className="text-xl font-bold text-left">Cups</h3>
-      <div className="flex space-x-4 overflow-x-auto">
-        {Cups.map((card) => (
-          <TarotCard key={card.name} name={card.name} src={card.src} />
-        ))}
-      </div>
-      <h3 className="text-xl font-bold text-left">Pentacles</h3>
-      <div className="flex space-x-4 overflow-x-auto">
-        {Pentacles.map((card) => (
-          <TarotCard key={card.name} name={card.name} src={card.src} />
-        ))}
-      </div>
-      <h3 className="text-xl font-bold text-left">Swords</h3>
-      <div className="flex space-x-4 overflow-x-auto">
-        {Swords.map((card) => (
-          <TarotCard key={card.name} name={card.name} src={card.src} />
-        ))}
-      </div>
-      <h3 className="text-xl font-bold text-left">Wands</h3>
-      <div className="flex space-x-4 overflow-x-auto">
-        {Wands.map((card) => (
-          <TarotCard key={card.name} name={card.name} src={card.src} />
-        ))}
-      </div>
+    <div
+      className="w-full"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Image
+        src="/pepe-mandelbrot.gif"
+        alt="Pepe Mandelbrot"
+        fill
+        style={{ zIndex: 1 }}
+      />
+      <div
+        style={{
+          position: "fixed",
+          zIndex: 2,
+          width: "100%",
+          height: "8rem",
+        }}
+        onClick={() => {
+          setAbove(true);
+        }}
+      ></div>
+      <div
+        style={{
+          position: "fixed",
+          zIndex: 2,
+          width: "100%",
+          height: "8rem",
+          bottom: 0,
+        }}
+        onClick={() => {
+          if (above) {
+            alert("As above, so below. Welcome...");
+            router.push("/tarot");
+          }
+        }}
+      ></div>
     </div>
   );
 }
