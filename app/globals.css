@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+
+.tarot-card {
+  position: relative;
+  min-width: 200px;
+  width: 200px;
+  height: 350px;
+}
