@@ -17,11 +17,10 @@ const MiniApp = ({ title, description, path, emoji, comingSoon }: MiniAppProps) 
   return (
     <div
       onClick={() => !comingSoon && router.push(path)}
-      className={`bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 transition-all duration-300 relative ${
-        comingSoon 
-          ? 'opacity-70 cursor-not-allowed' 
+      className={`bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 transition-all duration-300 relative ${comingSoon
+          ? 'opacity-70 cursor-not-allowed'
           : 'cursor-pointer hover:bg-white/20 hover:scale-105'
-      }`}
+        }`}
     >
       {comingSoon && (
         <div className="absolute -top-2 -right-2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full">
@@ -85,12 +84,6 @@ export default function SelectPage() {
               comingSoon={app.comingSoon}
             />
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-white/60 text-sm">
-            "As above, so below"
-          </p>
         </div>
       </div>
     </div>
