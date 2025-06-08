@@ -18,8 +18,8 @@ const MiniApp = ({ title, description, path, emoji, comingSoon }: MiniAppProps) 
     <div
       onClick={() => !comingSoon && router.push(path)}
       className={`bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 transition-all duration-300 relative ${comingSoon
-          ? 'opacity-70 cursor-not-allowed'
-          : 'cursor-pointer hover:bg-white/20 hover:scale-105'
+        ? 'opacity-70 cursor-not-allowed'
+        : 'cursor-pointer hover:bg-white/20 hover:scale-105'
         }`}
     >
       {comingSoon && (
@@ -47,6 +47,13 @@ export default function SelectPage() {
       description: "Explore the mystical world of tarot cards and divine your future",
       path: "/tarot",
       emoji: "🔮",
+      comingSoon: true,
+    },
+    {
+      title: "Meme Library",
+      description: "Memes of production",
+      path: "/memes",
+      emoji: "📖",
       comingSoon: true,
     },
   ];
