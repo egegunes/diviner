@@ -45,7 +45,7 @@ export default function Home() {
         onClick={() => {
           if (above) {
             alert("As above, so below. Welcome...");
-            router.push("/tarot");
+            router.push("/select");
           }
         }}
       ></div>
